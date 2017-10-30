@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Build Status](https://codeship.com/projects/69678830-9f8b-0135-f4fb-7273c0311e49/status?branch=master)
 
-Things you may want to cover:
+![Code Climate](https://codeclimate.com/github/Marcus-boyd/running_world.png)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Coverage Status](https://coveralls.io/repos/Marcus-boyd/running_world/badge.png)
