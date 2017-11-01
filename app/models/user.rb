@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable,:rememberable,
+         :trackable, :validatable
+        #  :recoverable
 
 
 
@@ -10,12 +11,11 @@ class User < ApplicationRecord
     false
   end
 
-  def email_change?
+  def email_changed?
     false
   end
-
-  validates :username, uniqueness: true
-  validates_presence_of :username
+  validates :email, uniqueness: true
+  validates_presence_of :email
   has_many :workouts
   has_many :comments, through: :workouts
 end
