@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20171031150606) do
 
   create_table "workouts", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "type", null: false
-    t.time "time", null: false
+    t.string "racetype", null: false
+    t.integer "time", null: false
     t.float "distance", null: false
-    t.time "rest"
+    t.integer "rest"
     t.integer "reps", default: 1, null: false
     t.float "intervaldistance"
     t.datetime "created_at", null: false
