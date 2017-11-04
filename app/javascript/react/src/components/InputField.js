@@ -4,8 +4,8 @@ const InputField = props => {
   return(
     <div>
       <input
-        onChange={props.handleChange}
-        name={props.name}
+        handleChange={props.handleChange}
+        name=
         type={props.type}
         pattern={props.pattern}
         value={props.value}

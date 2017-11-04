@@ -2,14 +2,17 @@ class Api::V1::WorkoutsController < ApplicationController
   # protect_from_forgery unless: -> { request.format.json? }
 
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts
     render json: @workouts
   end
 
   def user_workouts_index
     user_id = params[:user_id]
 
-    @workouts = Workout.where(user_id: user_id)
+    @workouts = Workout.where(user_id: user_id).map do |workout|
+      workout.as_json.merge
+    end
+    render json: @workouts
   end
 
   def show
