@@ -12,10 +12,25 @@ class WorkoutForm extends React.Component {
       distance: 0,
       rest: 0,
       reps: 0,
-      intervaldistance: 0,
+      intervaldistance: 0
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.clearForm = this.clearForm.bind(this)
+  }
+
+  clearForm() {
+    this.setState({
+      racetype: "",
+      time: 0,
+      minutes: 0,
+      seconds: 0,
+      tenths: 0,
+      distance: 0,
+      rest: 0,
+      reps: 0,
+      intervaldistance: 0
+    })
   }
 
 
@@ -46,7 +61,7 @@ class WorkoutForm extends React.Component {
   render() {
     return (
       <div>
-        Hello
+        <h3>Enter your workout here</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
             <span>Time: </span>
@@ -109,7 +124,7 @@ class WorkoutForm extends React.Component {
             <span>Rest: </span>
             <input
               type='text'
-              value={this.state.reps}
+              value={this.state.rest}
               onChange={this.handleChange}
               name='rest'
               label='rest'
