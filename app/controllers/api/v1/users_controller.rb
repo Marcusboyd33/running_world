@@ -5,14 +5,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(email: params[:id])
+    @user = User.find_by(id: params[:id])
+    render json: @user
   end
 
   def user
     render json: current_user
   end
-
-  # def create
-  #
-  # end
 end

@@ -6,19 +6,23 @@ Rails.application.routes.draw do
 
   namespace "api" do
     namespace "v1" do
-      resources :users, param: :email
+      resources :users, only: [:index, :show] do
+        resources :workouts
+      end
       resources :workouts
 
       get "/current-user", to: "users#user"
 
       # all workouts for one user
-      get "users/:user_id/workouts", to: "workouts#user_workouts_index"
-
-      # one specific workout for a user
-      get "users/:user_id/workouts/:workout_id", to: "workouts#show"
-
+      # get "users/:user_id/workouts", to: "workouts#user_workouts_index"
+      #
+      # # one specific workout for a user
+      # get "users/:user_id/workouts/:workout_id", to: "workouts#show"
+      #
+      # # workouts for current user
+      # get "/current-user", to: ""
       # create
-      # post "users/:user_slug/workouts"
+
 
     end
   end
