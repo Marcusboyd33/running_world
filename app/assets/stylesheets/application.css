@@ -12,4 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ /*= require foundation
  */
+
+.workout-info {
+  color: navy;
+  text-align: center;
+  background-color: #e6b800;
+  font-size: 3rem;
+  margin-left: 100px;
+  margin-right: 100px;
+}

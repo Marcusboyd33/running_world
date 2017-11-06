@@ -60,7 +60,7 @@ class WorkoutForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='form-container'>
         <h3>Enter your workout here</h3>
         <form onSubmit={this.handleSubmit}>
           <div>
