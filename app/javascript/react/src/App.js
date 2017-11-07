@@ -1,11 +1,14 @@
 import React from 'react';
 import WorkoutForm from './components/WorkoutForm';
-import {Route, Swith } from 'react-router-dom'
+import UserHomepage from './containers/UserHomepage';
+import {Route, Swith } from 'react-router-dom';
+import Stopwatch from './components/Stopwatch';
+
 const App = props => {
   return(
     <div>
-      
-      <WorkoutForm />
+      <Stopwatch />
+      {/* <UserHomepage /> */}
     </div>
   )
 }

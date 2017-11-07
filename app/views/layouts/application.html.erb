@@ -6,17 +6,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
   </head>
 
   <body>
-    <div>
+    <nav>
       <% if current_user %>
         <%= current_user.email  %>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "Log in", new_user_session_path %>
       <% end %>
-    </div>
+    </nav>
     <div id="app">
     <%= yield %>
     </div>
