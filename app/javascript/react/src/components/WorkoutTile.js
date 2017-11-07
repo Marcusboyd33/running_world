@@ -9,7 +9,8 @@ const WorkoutTile = props => {
       </div>
       <hr/>
       <div className='workout-info'>
-        {props.reps} x {props.distance} @ {props.time} with {props.rest} minutes rest
+        <p className='workout-info'>{props.reps} x {props.distance} @ {props.time} seconds
+         with {props.rest} minutes rest</p>
       </div>
 
     </div>

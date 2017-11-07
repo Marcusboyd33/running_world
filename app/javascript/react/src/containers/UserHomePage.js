@@ -14,7 +14,9 @@ class UserHomepage extends React.Component {
     // this.addWorkout= this.addWorkout.bind(this)
   }
   fetchCurrentUser() {
-    fetch("/api/v1/current-user")
+    fetch("/api/v1/current-user", {
+      credentials: "same-origin"
+    })
     .then(response => response.json())
     .then(data => {
       this.setState({
@@ -42,13 +44,15 @@ class UserHomepage extends React.Component {
   //     distance: formPayload.distance,
   //     rest: formPayload.rest,
   //     reps: formPayload.reps,
-  //     intervaldistance: formPayload.intervaldistance,
+  //     intervaldistance: formPayload.intervaldistance
   //   }
+  //
+  //   let stringifiedPayload = JSON.stringify(payload)
   //   fetch('/api/v1/workouts.json', {
   //     credentials: 'same-origin',
   //     method: 'POST',
   //     headers: {'Content-Type': 'application/json'},
-  //     body: payload
+  //     body: stringifiedPayloadpayload
   //   })
   //   .then(() => {
   //     this.fetchWorkout()
@@ -77,11 +81,13 @@ class UserHomepage extends React.Component {
      />
    )
 
-  //  let workoutForm = null
-  //  workoutForm = <WorkoutForm addWorkout={this.addWorkout}/>
+   let workoutForm = null
+   workoutForm = <WorkoutForm addWorkout={this.addWorkout}/>
     return (
       <div>
         {/* {workoutForm} */}
+        <button>Create New</button>
+        <h3>Your Workouts</h3>
         {workouts}
       </div>
     )
