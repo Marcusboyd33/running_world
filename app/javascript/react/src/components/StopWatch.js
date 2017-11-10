@@ -49,7 +49,7 @@ class Stopwatch extends React.Component {
     const {isRunning, timeElapsed} = this.state;
     return (
       <div>
-        <Link to={`/`}><button>Home</button></Link>
+        <Link to={`/`}><button className='home-button'>Home</button></Link>
 
         <div className='stopwatch'>
           <Countdown id="countdown" date={Date.now() + 6000000} />

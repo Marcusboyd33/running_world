@@ -52,9 +52,9 @@ class WorkoutForm extends React.Component {
   render() {
     return (
       <div>
-        <Link to={`/`}><button>Home</button></Link>
+        <Link to={`/`}><button className='home-button'>Home</button></Link>
         <div className='form-container'>
-          <h3>Enter your workout here</h3>
+          <h3 className='form-heading'>Enter your workout here</h3>
           <form onSubmit={this.handleSubmit}>
             <div className='time-container'>
               <span>Time: </span>
@@ -107,7 +107,7 @@ class WorkoutForm extends React.Component {
                 label='pace'
               />
             </div>
-            <button type="submit" value="Submit">Submit</button>
+            <button type="submit" className='home-button'value="Submit">Submit</button>
           </form>
         </div>
       </div>

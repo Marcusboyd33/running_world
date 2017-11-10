@@ -30,6 +30,7 @@
   /*background-color: #b3cccc;*/
   background-color: rgb(20, 23, 26);
   height: 200%;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .workout-info {
@@ -87,10 +88,27 @@
 }
 
 .create-button {
+  background-color: lime;
+  color: black;
+  margin: auto;
+  width: 50%;
+  margin-left: 250px;
+  border-radius: 40px;
+}
 
+.home-button {
+  background-color: lime;
+  color: black;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
 }
 .form-container span {
-  /*color: blue;*/
+  color: lime;
+}
+
+.form-heading {
+  color: lime;
 }
 
 .time-container {
