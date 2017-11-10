@@ -1,58 +1,50 @@
 import React, { Component } from "react"
 import WorkoutTile from "../components/WorkoutTile"
 import WorkoutForm from "../components/WorkoutForm"
-
+import {Link } from 'react-router-dom';
 class UserHomepage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       currentUser: null,
-      workouts: []
+      workouts: [],
+      workoutId: props.match.params.workout_id
     }
-    this.fetchCurrentUser = this.fetchCurrentUser.bind(this)
+    // this.fetchCurrentUser = this.fetchCurrentUser.bind(this)
     this.fetchWorkout = this.fetchWorkout.bind(this)
     // this.addWorkout= this.addWorkout.bind(this)
   }
-  fetchCurrentUser() {
-    fetch("/api/v1/current-user", {
+  // fetchCurrentUser() {
+  //   fetch("/api/v1/current-user", {
+  //     credentials: "same-origin"
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     this.setState({
+  //       currentUser: data
+  //     })
+  //   })
+  // }
+
+  fetchWorkout() {
+    fetch(`/api/v1/workouts`, {
       credentials: "same-origin"
     })
     .then(response => response.json())
     .then(data => {
       this.setState({
-        currentUser: data
-      })
-    })
-  }
-
-
-
-
-  fetchWorkout() {
-    fetch("/api/v1/workouts")
-    .then(response => response.json())
-    .then(data => {
-      this.setState({
-        workouts: data.sort((a,b) => a.created_at < b.created_at)
+        workouts: data
       })
     })
   }
 
   // addWorkout(formPayload) {
-  //   let payload = {
-  //     time: formPayload.time,
-  //     distance: formPayload.distance,
-  //     rest: formPayload.rest,
-  //     reps: formPayload.reps,
-  //     intervaldistance: formPayload.intervaldistance
-  //   }
   //
-  //   let stringifiedPayload = JSON.stringify(payload)
   //   fetch('/api/v1/workouts.json', {
   //     credentials: 'same-origin',
   //     method: 'POST',
   //     headers: {'Content-Type': 'application/json'},
-  //     body: stringifiedPayloadpayload
+  //     body: JSON.stringify(formPayload)
   //   })
   //   .then(() => {
   //     this.fetchWorkout()
@@ -60,9 +52,7 @@ class UserHomepage extends React.Component {
   // }
 
   componentDidMount() {
-    this.fetchCurrentUser()
     this.fetchWorkout()
-    // this.addWorkout()
   }
 
   render(){
@@ -72,22 +62,16 @@ class UserHomepage extends React.Component {
       key={workout.id}
       data={workout}
       createdAt={workout.created_at}
-      reps={workout.reps}
       distance={workout.distance}
       time={workout.time}
-      racetype={workout.racetype}
-      rest={workout.rest}
-      intervaldistance={workout.intervaldistance}
+      pace={workout.pace}
      />
    )
 
-   let workoutForm = null
-   workoutForm = <WorkoutForm addWorkout={this.addWorkout}/>
     return (
       <div>
-        {/* {workoutForm} */}
-        <button>Create New</button>
         <h3>Your Workouts</h3>
+        <Link to={"/workouts/new"}><button className='create-button'>Create New</button></Link>
         {workouts}
       </div>
     )

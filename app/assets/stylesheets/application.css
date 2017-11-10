@@ -26,18 +26,31 @@
   top: 0;
   flex-grow: 1;
 }*/
+#app {
+  /*background-color: #b3cccc;*/
+  background-color: rgb(20, 23, 26);
+  height: 200%;
+}
 
 .workout-info {
-  color: navy;
+  color: lime;
   text-align: center;
-  background-color: #e6b800;
-  font-size: 3rem;
-  margin-left: 100px;
-  margin-right: 100px;
+  background-color: black;
+  /*background-color: #e6b800;*/
+  font-size: 2rem;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 40px;
+}
+.workout-info a {
+  color: lime
 }
 
 .stopwatch {
   text-align: center;
+  color: lime;
+  font-size: 2rem;
 }
 
 .strstp-btn {
@@ -46,8 +59,8 @@
   background-color: black;
   margin: 5px;
 }
-.dead {
-  color: green;
+.dead, .dead:hover, .dead:active, .dead:visited, .dead:focus, .dead:link{
+  color: red;
 }
 .strstp-btn:hover {
   background-color: black;
@@ -63,9 +76,41 @@
   background-color: black;
 }
 
+.strstp-btn:focus {
+  background-color: black;
+}
 
+.form-container {
+  width: 50%;
+  margin: auto;
 
+}
+
+.create-button {
+
+}
+.form-container span {
+  /*color: blue;*/
+}
+
+.time-container {
+  display: inline-flex;
+}
+
+.time-container span {
+  font-size: 1.5rem;
+}
 #timer {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
+  /*font-family: 'Orbitron', sans-serif;*/
+  font-size: 3.25rem;
+}
+
+#countdown {
+  font-size: 3.25rem;
+  background-color: orange;
+}
+
+.field {
+  width: 50%;
+  margin: auto;
 }

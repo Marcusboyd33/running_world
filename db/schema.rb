@@ -41,12 +41,9 @@ ActiveRecord::Schema.define(version: 20171031150606) do
 
   create_table "workouts", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "racetype", null: false
     t.integer "time", null: false
     t.float "distance", null: false
-    t.integer "rest"
-    t.integer "reps", default: 1, null: false
-    t.float "intervaldistance"
+    t.integer "pace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_workouts_on_user_id"
