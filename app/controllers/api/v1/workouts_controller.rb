@@ -1,9 +1,9 @@
 class Api::V1::WorkoutsController < ApplicationController
-  protect_from_forgery unless: -> { request.format.json? }
+  # protect_from_forgery unless: -> { request.format.json? }
   skip_before_action :verify_authenticity_token
-
+  # before_action :authorize_user
   def index
-    @workouts = Workout.all
+    @workouts = Workout.order("created_at DESC").all
     render json: @workouts
   end
 
@@ -18,18 +18,34 @@ class Api::V1::WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    @workout.user = current_user
     render json: @workout
   end
 
   def create
     @workouts = Workout.new(workout_params)
     @workouts.user = current_user
+    @workouts.save
     render json: @workouts
   end
 
+  # def destroy
+  #   @workout = Workout.find(params[:id])
+  #   @workout.user = current_user
+  #   @workout.delete
+  #   render json: { message: 'deleted workout'}
+  #
+  # end
+
   # private
 
+  # def authorize_user
+  #   if !current_user
+  #     return render json: {errors: ['Please Sign in']}
+  #   end
+  # end
+  private
   def workout_params
-    params.permit(:racetype, :time, :distance, :rest, :reps, :intervaldistance)
+    params.permit(:time, :distance, :pace)
   end
 end
