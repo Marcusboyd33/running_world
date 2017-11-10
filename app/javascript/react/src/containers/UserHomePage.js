@@ -29,7 +29,7 @@ class UserHomepage extends React.Component {
 
   componentDidMount() {
     this.fetchWorkout()
-  }
+  };
 
   render(){
     let workouts = this.state.workouts.map(workout =>
