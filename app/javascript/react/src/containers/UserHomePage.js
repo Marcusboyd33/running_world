@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import WorkoutTile from "../components/WorkoutTile"
 import WorkoutForm from "../components/WorkoutForm"
 import {Link } from 'react-router-dom';
+
 class UserHomepage extends React.Component {
   constructor(props) {
     super(props)
@@ -10,21 +11,8 @@ class UserHomepage extends React.Component {
       workouts: [],
       workoutId: props.match.params.workout_id
     }
-    // this.fetchCurrentUser = this.fetchCurrentUser.bind(this)
     this.fetchWorkout = this.fetchWorkout.bind(this)
-    // this.addWorkout= this.addWorkout.bind(this)
   }
-  // fetchCurrentUser() {
-  //   fetch("/api/v1/current-user", {
-  //     credentials: "same-origin"
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     this.setState({
-  //       currentUser: data
-  //     })
-  //   })
-  // }
 
   fetchWorkout() {
     fetch(`/api/v1/workouts`, {
@@ -38,18 +26,6 @@ class UserHomepage extends React.Component {
     })
   }
 
-  // addWorkout(formPayload) {
-  //
-  //   fetch('/api/v1/workouts.json', {
-  //     credentials: 'same-origin',
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify(formPayload)
-  //   })
-  //   .then(() => {
-  //     this.fetchWorkout()
-  //   })
-  // }
 
   componentDidMount() {
     this.fetchWorkout()
