@@ -5,7 +5,7 @@ const InputField = props => {
     <div>
       <input
         handleChange={props.handleChange}
-        name=
+        name={props.name}
         type={props.type}
         pattern={props.pattern}
         value={props.value}
